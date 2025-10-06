@@ -16,10 +16,10 @@ module.exports = (sequelize, DataTypes) => {
   ItemType.associate = function(models) {
     // Define associations here if needed
     // For example, if ItemType has a one-to-many relationship with Item:
-    ItemType.hasMany(models.Item, {
-      foreignKey: 'itemTypeId',
-      as: 'items'
-    });
+    // ItemType.hasMany(models.Item, {
+    //   foreignKey: 'itemTypeId',
+    //   as: 'items'
+    // });
   };
 
   return ItemType;

@@ -3,6 +3,7 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 const Router = require('./routes/index.js')
+require('dotenv').configDotenv()
 
 require('./models/index.js')
 
@@ -16,6 +17,6 @@ app.get('/', (req, res) => {
     res.send('Hello World!')
 })
 
-app.listen(3001, () => {
-    console.log('Server Running On PORT : 3001')
+app.listen(process.env.PORT, () => {
+    console.log(`Server Running On PORT : ${process.env.PORT}`)
 })

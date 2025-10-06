@@ -95,15 +95,16 @@ class UserController {
             if (!user || user.length === 0) {
                 throw new Error('No Record Found');
             }
+            console.log(password, user[0].password);
             const compareHashCode = await bcrypt.compare(password, user[0].password)
             const authentication = await AuthenticationController.authentication(user[0]);
 
             if(compareHashCode && authentication) {
                 return {
-                message: 'Login successful',
-                token: authentication,
-                id: user[0].id,
-            };
+                    message: 'Login successful',
+                    token: authentication,
+                    id: user[0].id,
+                };
             }
         } catch (error) {
             throw new Error(error.message);
